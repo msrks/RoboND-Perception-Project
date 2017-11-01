@@ -77,6 +77,12 @@ modify training-set/world
 evaluate svm
 
 ```bash
+#pr2_robot/launch/pick_place_project.launch を編集する
+$ nano src/RoboND-Perception-Project/pr2_robot/launch/pick_place_project.launch
+#(pick_list_*.yaml と test*.world を書換)
+$ cp model_world1.sav src/RoboND-Perception-Project/pr2_robot/scripts/model.sav
+#$ cp model_world2.sav src/RoboND-Perception-Project/pr2_robot/scripts/model.sav
+#$ cp model_world3.sav src/RoboND-Perception-Project/pr2_robot/scripts/model.sav
 $ roslaunch pr2_robot pick_place_project.launch
 $ rosrun pr2_robot project_template.py
 ```

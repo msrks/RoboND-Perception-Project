@@ -56,7 +56,7 @@ def pcl_callback(pcl_msg):
 
     # TODO: Statistical Outlier Filtering
     outlier_filter = cloud.make_statistical_outlier_filter()
-    outlier_filter.set_mean_k(50)
+    outlier_filter.set_mean_k(7)
     x = 0.5
     outlier_filter.set_std_dev_mul_thresh(x)
     cloud = outlier_filter.filter()
@@ -71,8 +71,16 @@ def pcl_callback(pcl_msg):
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name (filter_axis)
-    axis_min = 0.77
-    axis_max = 1.1
+    axis_min = 0.6
+    axis_max = 1.2
+    passthrough.set_filter_limits (axis_min, axis_max)
+    cloud_filtered = passthrough.filter()
+
+    passthrough = cloud_filtered.make_passthrough_filter()
+    filter_axis = 'x'
+    passthrough.set_filter_field_name (filter_axis)
+    axis_min = 0.34
+    axis_max = 1.2
     passthrough.set_filter_limits (axis_min, axis_max)
     cloud_filtered = passthrough.filter()
 
@@ -235,6 +243,8 @@ def pr2_mover(object_list, object_labels):
 
         # Wait for 'pick_place_routine' service to come up
         rospy.wait_for_service('pick_place_routine')
+
+        continue
 
         try:
             pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
