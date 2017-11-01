@@ -60,9 +60,9 @@ retrain svm for project
 
 ```bash
 $ roslaunch sensor_stick training.launch
-$ cp ~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/scripts/capture_features.py ~/catkin_ws/src/sensor_stick/scripts/capture_features.py
+$ cp ~/catkin_ws/src/RoboND-Perception-Project/pr2_robot/scripts/capture_features.py ~/catkin_ws/src/sensor_stick/scripts/capture_features_pr2.py
 #edit models_list
-$ nano ~/catkin_ws/src/sensor_stick/scripts/capture_features.py
+$ nano ~/catkin_ws/src/sensor_stick/scripts/capture_features_pr2.py
 $ rosrun sensor_stick capture_features.py
 $ rosrun sensor_stick train_svm.py
 ```
