@@ -16,7 +16,7 @@ implemented!
 
 implemented!
 
-I have 1) used HSV channel, 2) used RBF kernel for SVC, and 3) increased the number of captured features to improve confusion matrix.
+I have 1) used HSV channel, 2) used RBF kernel for SVC, and 3) increased the number(=30) of captured features to improve confusion matrix.
 
 confusion matrix is the following ..
 
